@@ -21,11 +21,13 @@ jobs:
   steps:
   - powershell: |
         cd ..
+        git config --global user.email "you@example.com"
         git clone https://github.com/dotnet/crank
         cd ./crank/
         git fetch -p
         git pull
-        git checkout sebros/bot --hard
+        git checkout sebros/bot
+        git reset --hard
         cd src/Microsoft.Crank.RegressionBot
         dotnet run -c release -- `
             --config https://raw.githubusercontent.com/aspnet/Benchmarks/master/build/regressions.config.yml `
