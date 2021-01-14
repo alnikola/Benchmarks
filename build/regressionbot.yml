@@ -26,7 +26,8 @@ jobs:
         git clean -fd
         git pull
         git fetch -p
-        git reset --hard origin/sebros/bot2
+        git reset --hard origin/master
+        git checkout master
         git checkout sebros/bot2
         cd src/Microsoft.Crank.RegressionBot
         dotnet run -c release -- `
