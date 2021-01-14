@@ -23,7 +23,7 @@ jobs:
         cd ..
         git clone https://github.com/dotnet/crank
         cd ./crank/
-        git checkout master
+        git checkout sebros/bot
         git pull
         cd src/Microsoft.Crank.RegressionBot
         dotnet run -c release -- `
@@ -34,7 +34,8 @@ jobs:
             --install-id $(github.installid) `
             --username $(github.username) `
             --app-key BENCHMARKSBOT_GitHubAppKey `
-            --verbose
+            --verbose `
+            --read-only
 
     env:
         BENCHMARKSBOT_ConnectionString: $(sql.connectionstring)
